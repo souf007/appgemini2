@@ -1,0 +1,109 @@
+// main styles for the suppliers page
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f8f9fa;
+}
+
+.lx-wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.lx-header {
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+}
+
+.lx-main {
+    display: flex;
+    flex: 1;
+}
+
+.lx-main-leftside {
+    width: 250px;
+    background-color: #343a40;
+    color: #fff;
+}
+
+.lx-main-content {
+    flex: 1;
+    padding: 2rem;
+}
+
+.lx-page-header {
+    margin-bottom: 2rem;
+    h2 {
+        font-size: 2rem;
+        font-weight: 600;
+    }
+}
+
+.lx-page-content {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.lx-add-form {
+    margin-bottom: 1rem;
+}
+
+.lx-keyword {
+    margin-bottom: 2rem;
+}
+
+.lx-table-container {
+    position: relative;
+    .lx-table-shadow {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 10px;
+        pointer-events: none;
+    }
+    .lx-table-shadow-left {
+        left: 0;
+        background: linear-gradient(to right, rgba(0,0,0,0.1), transparent);
+    }
+    .lx-table-shadow-right {
+        right: 0;
+        background: linear-gradient(to left, rgba(0,0,0,0.1), transparent);
+    }
+}
+
+.lx-table {
+    width: 100%;
+    margin-bottom: 1rem;
+    color: #212529;
+    border-collapse: collapse;
+
+    th, td {
+        padding: 0.75rem;
+        vertical-align: top;
+        border-top: 1px solid #dee2e6;
+    }
+
+    thead th {
+        vertical-align: bottom;
+        border-bottom: 2px solid #dee2e6;
+    }
+
+    tbody + tbody {
+        border-top: 2px solid #dee2e6;
+    }
+}
+
+.lx-action-bulk {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.lx-pagination {
+    display: flex;
+    justify-content: center;
+}
