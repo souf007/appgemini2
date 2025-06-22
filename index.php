@@ -1,7 +1,15 @@
 <?php
+// --- Temporary Error Reporting for Debugging ---
+// This code should be removed once the blank page issue is resolved.
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+// --- End of Temporary Code ---
+
 session_start();
 include("config.php");
 
+// The rest of the file remains unchanged...
 $_SESSION['easybm_errorimport'] = "";
 
 if(!isset($_SESSION['easybm_id'])){
@@ -413,7 +421,7 @@ if(isset($_SESSION['easybm_id']) AND isset($_SESSION['easybm_fullname'])){
 					startDate: moment().startOf('day').subtract(30,'day'),
 					endDate: moment(),
 					ranges: {
-						'Aujourd\'hui': [moment(), moment()],
+						'Aujourd'hui': [moment(), moment()],
 						'Hier': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
 						'Derniers 7 Jours': [moment().subtract(6, 'days'), moment()],
 						'Derniers 30 Jours': [moment().subtract(29, 'days'), moment()],
