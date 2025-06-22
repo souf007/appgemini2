@@ -1,111 +1,103 @@
 -- phpMyAdmin SQL Dump
--- version 4.1.14
--- http://www.phpmyadmin.net
+-- version 5.2.1
+-- https://www.phpmyadmin.net/
 --
--- Client :  127.0.0.1:3307
--- Généré le :  Jeu 24 Avril 2025 à 18:36
--- Version du serveur :  5.6.17
--- Version de PHP :  5.5.12
+-- Host: 127.0.0.1
+-- Generation Time: Apr 25, 2025 at 12:00 PM
+-- Server version: 10.4.28-MariaDB
+-- PHP Version: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
 SET time_zone = "+00:00";
-
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données :  `easydoc`
+-- Database: `easydoc`
 --
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `bankaccounts`
+-- Table structure for table `bankaccounts`
 --
 
-CREATE TABLE IF NOT EXISTS `bankaccounts` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `bankaccounts` (
+  `id` int(11) NOT NULL,
   `company` int(11) NOT NULL,
-  `rib` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `bank` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `agency` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `trash` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+  `rib` varchar(255) NOT NULL,
+  `bank` varchar(255) NOT NULL,
+  `agency` varchar(255) NOT NULL,
+  `trash` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `clients`
+-- Table structure for table `clients`
 --
 
-CREATE TABLE IF NOT EXISTS `clients` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `code` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
-  `codecl` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `ice` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `iff` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `fullname` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `phone` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `address` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `note` text COLLATE utf8_unicode_ci NOT NULL,
-  `company` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `dateadd` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `trash` int(11) NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `code` (`code`),
-  KEY `fullname` (`fullname`),
-  KEY `phone` (`phone`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=4 ;
+CREATE TABLE `clients` (
+  `id` int(11) NOT NULL,
+  `code` varchar(20) NOT NULL,
+  `codecl` varchar(255) NOT NULL,
+  `ice` varchar(255) NOT NULL,
+  `iff` varchar(255) NOT NULL,
+  `fullname` varchar(255) NOT NULL,
+  `phone` varchar(255) NOT NULL,
+  `address` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `note` text NOT NULL,
+  `company` varchar(255) NOT NULL,
+  `dateadd` varchar(255) NOT NULL,
+  `trash` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `companies`
+-- Table structure for table `companies`
 --
 
-CREATE TABLE IF NOT EXISTS `companies` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `rs` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `logo1` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `signature` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `address` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `phone` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `website` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `capital` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `rc` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `patente` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `iff` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `cnss` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `ice` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `facture` int(11) NOT NULL,
-  `devis` int(11) NOT NULL,
-  `avoir` int(11) NOT NULL,
-  `br` int(11) NOT NULL,
-  `factureproforma` int(11) NOT NULL,
-  `bl` int(11) NOT NULL,
-  `bs` int(11) NOT NULL,
-  `bc` int(11) NOT NULL,
-  `bre` int(11) NOT NULL,
-  `trash` int(11) NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `rs` (`rs`),
-  KEY `phone` (`phone`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
+CREATE TABLE `companies` (
+  `id` int(11) NOT NULL,
+  `rs` varchar(255) NOT NULL,
+  `logo1` varchar(255) DEFAULT NULL,
+  `signature` varchar(255) DEFAULT NULL,
+  `address` varchar(255) NOT NULL,
+  `phone` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `website` varchar(255) DEFAULT NULL,
+  `capital` varchar(255) DEFAULT NULL,
+  `rc` varchar(255) NOT NULL,
+  `patente` varchar(255) NOT NULL,
+  `iff` varchar(255) NOT NULL,
+  `cnss` varchar(255) NOT NULL,
+  `ice` varchar(255) NOT NULL,
+  `facture` int(11) NOT NULL DEFAULT 1,
+  `devis` int(11) NOT NULL DEFAULT 1,
+  `avoir` int(11) NOT NULL DEFAULT 1,
+  `br` int(11) NOT NULL DEFAULT 1,
+  `factureproforma` int(11) NOT NULL DEFAULT 1,
+  `bl` int(11) NOT NULL DEFAULT 1,
+  `bs` int(11) NOT NULL DEFAULT 1,
+  `bc` int(11) NOT NULL DEFAULT 1,
+  `bre` int(11) NOT NULL DEFAULT 1,
+  `trash` int(11) NOT NULL DEFAULT 1
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `detailsdocuments`
+-- Table structure for table `detailsdocuments`
 --
 
-CREATE TABLE IF NOT EXISTS `detailsdocuments` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `detailsdocuments` (
+  `id` int(11) NOT NULL,
   `doc` int(11) NOT NULL,
   `title` varchar(255) NOT NULL,
   `unit` varchar(255) NOT NULL,
@@ -121,19 +113,17 @@ CREATE TABLE IF NOT EXISTS `detailsdocuments` (
   `category` varchar(255) NOT NULL,
   `typedoc` varchar(255) NOT NULL,
   `dateadd` varchar(255) NOT NULL,
-  `trash` int(11) NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `title` (`title`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
+  `trash` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `documents`
+-- Table structure for table `documents`
 --
 
-CREATE TABLE IF NOT EXISTS `documents` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `documents` (
+  `id` int(11) NOT NULL,
   `code` varchar(255) NOT NULL,
   `price` double NOT NULL,
   `state` varchar(255) NOT NULL,
@@ -150,64 +140,49 @@ CREATE TABLE IF NOT EXISTS `documents` (
   `attachments` text NOT NULL,
   `user` int(11) NOT NULL,
   `dateadd` varchar(255) NOT NULL,
-  `trash` int(11) NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `code` (`code`),
-  KEY `type` (`type`),
-  KEY `client` (`client`),
-  KEY `supplier` (`supplier`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
+  `trash` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `infodocs`
+-- Table structure for table `infodocs`
 --
 
-CREATE TABLE IF NOT EXISTS `infodocs` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `infodocs` (
+  `id` int(11) NOT NULL,
   `company` int(11) NOT NULL,
-  `document` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `modepayment` text COLLATE utf8_unicode_ci NOT NULL,
-  `conditions` text COLLATE utf8_unicode_ci NOT NULL,
-  `abovetable` text COLLATE utf8_unicode_ci NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=3 ;
-
---
--- Contenu de la table `infodocs`
---
-
-INSERT INTO `infodocs` (`id`, `company`, `document`, `modepayment`, `conditions`, `abovetable`) VALUES
-(1, 1, 'facture', '<p>ok 2</p>', '<p>ok 3</p>', '<p>ok 1</p>'),
-(2, 1, 'devis', '<p>ok 2</p>', '<p>ok 3</p>', '<p>ok 1</p>');
+  `document` varchar(255) NOT NULL,
+  `modepayment` text NOT NULL,
+  `conditions` text NOT NULL,
+  `abovetable` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `notifications`
+-- Table structure for table `notifications`
 --
 
-CREATE TABLE IF NOT EXISTS `notifications` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `facture` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
-  `avoir` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
-  `caissein` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
-  `caisseout` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
-  `unpaid` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
-  `inwaiting` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
-  `outwaiting` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
-  `rcaissein` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
-  `rcaisseout` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
-  `remis` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
-  `rremis` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
-  `incach` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
-  `outcach` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
+CREATE TABLE `notifications` (
+  `id` int(11) NOT NULL,
+  `facture` varchar(10) NOT NULL,
+  `avoir` varchar(10) NOT NULL,
+  `caissein` varchar(10) NOT NULL,
+  `caisseout` varchar(10) NOT NULL,
+  `unpaid` varchar(10) NOT NULL,
+  `inwaiting` varchar(10) NOT NULL,
+  `outwaiting` varchar(10) NOT NULL,
+  `rcaissein` varchar(10) NOT NULL,
+  `rcaisseout` varchar(10) NOT NULL,
+  `remis` varchar(10) NOT NULL,
+  `rremis` varchar(10) NOT NULL,
+  `incach` varchar(10) NOT NULL,
+  `outcach` varchar(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Contenu de la table `notifications`
+-- Dumping data for table `notifications`
 --
 
 INSERT INTO `notifications` (`id`, `facture`, `avoir`, `caissein`, `caisseout`, `unpaid`, `inwaiting`, `outwaiting`, `rcaissein`, `rcaisseout`, `remis`, `rremis`, `incach`, `outcach`) VALUES
@@ -216,41 +191,33 @@ INSERT INTO `notifications` (`id`, `facture`, `avoir`, `caissein`, `caisseout`, 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `parametres`
+-- Table structure for table `parametres`
 --
 
-CREATE TABLE IF NOT EXISTS `parametres` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `parametres` (
+  `id` int(11) NOT NULL,
   `user` int(11) NOT NULL,
   `nbrows` int(11) NOT NULL,
-  `rowcolor` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
-
---
--- Contenu de la table `parametres`
---
-
-INSERT INTO `parametres` (`id`, `user`, `nbrows`, `rowcolor`) VALUES
-(3, 4, 100, 1);
+  `rowcolor` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `payments`
+-- Table structure for table `payments`
 --
 
-CREATE TABLE IF NOT EXISTS `payments` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `payments` (
+  `id` int(11) NOT NULL,
   `code` varchar(255) NOT NULL,
   `doc` int(11) NOT NULL,
   `worker` int(11) NOT NULL,
   `client` int(11) NOT NULL,
   `supplier` int(11) NOT NULL,
   `type` varchar(255) NOT NULL,
-  `title` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `title` varchar(255) NOT NULL,
   `price` double NOT NULL,
-  `nature` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `nature` varchar(255) NOT NULL,
   `modepayment` varchar(255) NOT NULL,
   `imputation` varchar(255) NOT NULL,
   `rib` int(11) NOT NULL,
@@ -261,7 +228,7 @@ CREATE TABLE IF NOT EXISTS `payments` (
   `dateremis` varchar(255) NOT NULL,
   `nremise` varchar(255) NOT NULL,
   `company` int(11) NOT NULL,
-  `note` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `note` text NOT NULL,
   `typedoc` varchar(255) NOT NULL,
   `category` varchar(255) NOT NULL,
   `dateadd` varchar(255) NOT NULL,
@@ -269,18 +236,17 @@ CREATE TABLE IF NOT EXISTS `payments` (
   `datepaid` varchar(255) NOT NULL,
   `user` int(11) NOT NULL,
   `attachments` text NOT NULL,
-  `trash` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+  `trash` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `settings`
+-- Table structure for table `settings`
 --
 
-CREATE TABLE IF NOT EXISTS `settings` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `settings` (
+  `id` int(11) NOT NULL,
   `logo` varchar(255) NOT NULL,
   `cover` varchar(255) NOT NULL,
   `store` varchar(255) NOT NULL,
@@ -291,12 +257,11 @@ CREATE TABLE IF NOT EXISTS `settings` (
   `dategap` int(11) NOT NULL,
   `inventaire` int(11) NOT NULL,
   `defaultstate` varchar(255) NOT NULL,
-  `currency` varchar(255) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+  `currency` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Contenu de la table `settings`
+-- Dumping data for table `settings`
 --
 
 INSERT INTO `settings` (`id`, `logo`, `cover`, `store`, `oneprice`, `onlyproduct`, `onlyservice`, `useproject`, `dategap`, `inventaire`, `defaultstate`, `currency`) VALUES
@@ -305,44 +270,40 @@ INSERT INTO `settings` (`id`, `logo`, `cover`, `store`, `oneprice`, `onlyproduct
 -- --------------------------------------------------------
 
 --
--- Structure de la table `suppliers`
+-- Table structure for table `suppliers`
 --
 
-CREATE TABLE IF NOT EXISTS `suppliers` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `code` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
-  `codefo` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `title` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `respname` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `respphone` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `respemail` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `respfax` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `ice` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `address` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `dateadd` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `note` text COLLATE utf8_unicode_ci NOT NULL,
-  `company` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `trash` int(11) NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `title` (`title`),
-  KEY `respphone` (`respphone`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+CREATE TABLE `suppliers` (
+  `id` int(11) NOT NULL,
+  `code` varchar(20) NOT NULL,
+  `codefo` varchar(255) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `respname` varchar(255) NOT NULL,
+  `respphone` varchar(255) NOT NULL,
+  `respemail` varchar(255) NOT NULL,
+  `respfax` varchar(255) NOT NULL,
+  `ice` varchar(255) NOT NULL,
+  `address` varchar(255) NOT NULL,
+  `dateadd` varchar(255) NOT NULL,
+  `note` text NOT NULL,
+  `company` varchar(255) NOT NULL,
+  `trash` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `tvas`
+-- Table structure for table `tvas`
 --
 
-CREATE TABLE IF NOT EXISTS `tvas` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `tvas` (
+  `id` int(11) NOT NULL,
   `tva` double NOT NULL,
-  `trash` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=6 ;
+  `trash` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Contenu de la table `tvas`
+-- Dumping data for table `tvas`
 --
 
 INSERT INTO `tvas` (`id`, `tva`, `trash`) VALUES
@@ -354,36 +315,212 @@ INSERT INTO `tvas` (`id`, `tva`, `trash`) VALUES
 -- --------------------------------------------------------
 
 --
--- Structure de la table `users`
+-- Table structure for table `users`
 --
 
-CREATE TABLE IF NOT EXISTS `users` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `fullname` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `picture` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `password` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `phone` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `type` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `roles` text COLLATE utf8_unicode_ci NOT NULL,
+CREATE TABLE `users` (
+  `id` int(11) NOT NULL,
+  `fullname` varchar(255) NOT NULL,
+  `picture` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `phone` varchar(255) NOT NULL,
+  `type` varchar(255) NOT NULL,
+  `roles` text NOT NULL,
   `superadmin` int(11) NOT NULL,
-  `defaultstate` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `depots` text COLLATE utf8_unicode_ci NOT NULL,
-  `companies` text COLLATE utf8_unicode_ci NOT NULL,
-  `projects` text COLLATE utf8_unicode_ci NOT NULL,
-  `datesignup` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `trash` int(11) NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `email` (`email`),
-  KEY `phone` (`phone`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=5 ;
+  `defaultstate` varchar(255) NOT NULL,
+  `depots` text NOT NULL,
+  `companies` text NOT NULL,
+  `projects` text NOT NULL,
+  `datesignup` varchar(255) NOT NULL,
+  `trash` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Contenu de la table `users`
+-- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`id`, `fullname`, `picture`, `email`, `password`, `phone`, `type`, `roles`, `superadmin`, `defaultstate`, `depots`, `companies`, `projects`, `datesignup`, `trash`) VALUES
-(4, 'SuperAdmin', 'avatar.png', 'superadmin', '$2y$10$IfaD6cRz.n2f.s8C.w8E1u.1L5.d/Q1n.k1H8.s5M.a8G/j.b.d.S', '0709999589', 'moderator', 'Consulter Tableau de bord,Consulter Trésorerie,Ajouter Trésorerie,Modifier Trésorerie,Supprimer Trésorerie,Exporter Trésorerie,Consulter Factures,Ajouter Factures,Modifier Factures,Supprimer Factures,Exporter Factures,Consulter Devis,Ajouter Devis,Modifier Devis,Supprimer Devis,Exporter Devis,Consulter Factures proforma,Ajouter Factures proforma,Modifier Factures proforma,Supprimer Factures proforma,Exporter Factures proforma,Consulter Bons de livraison,Ajouter Bons de livraison,Modifier Bons de livraison,Supprimer Bons de livraison,Exporter Bons de livraison,Consulter Bons de sortie,Ajouter Bons de sortie,Modifier Bons de sortie,Supprimer Bons de sortie,Exporter Bons de sortie,Consulter Bons de retour,Ajouter Bons de retour,Modifier Bons de retour,Supprimer Bons de retour,Exporter Bons de retour,Consulter Factures avoir,Ajouter Factures avoir,Modifier Factures avoir,Supprimer Factures avoir,Exporter Factures avoir,Consulter Clients,Ajouter Clients,Modifier Clients,Supprimer Clients,Exporter Clients,CA Clients,Consulter Bons de commande,Ajouter Bons de commande,Modifier Bons de commande,Supprimer Bons de commande,Exporter Bons de commande,Consulter Bons de réception,Ajouter Bons de réception,Modifier Bons de réception,Supprimer Bons de réception,Exporter Bons de réception,Consulter Fournisseurs,Ajouter Fournisseurs,Modifier Fournisseurs,Supprimer Fournisseurs,Exporter Fournisseurs,CA Fournisseurs,Consulter Sociétés,Ajouter Sociétés,Modifier Sociétés,Supprimer Sociétés,Exporter Sociétés,CA Sociétés,Consulter Utilisateurs,Ajouter Utilisateurs,Modifier Utilisateurs,Supprimer Utilisateurs,Consulter TVA,Ajouter TVA,Modifier TVA,Supprimer TVA,Consulter Formation,Consultation des notifications,Réglage des notifications,Modification date opération,Transformation / Dupplication documents,Modification statut de paiement,Suppression historique de paiement,Télécharger Backup', 1, 'Livrée', '0', '0,1', '0', '1678533547', 1);
+(4, 'SuperAdmin', 'avatar.png', 'superadmin', 'superadmin', '0709999589', 'moderator', 'Consulter Tableau de bord,Consulter Trésorerie,Ajouter Trésorerie,Modifier Trésorerie,Supprimer Trésorerie,Exporter Trésorerie,Consulter Factures,Ajouter Factures,Modifier Factures,Supprimer Factures,Exporter Factures,Consulter Devis,Ajouter Devis,Modifier Devis,Supprimer Devis,Exporter Devis,Consulter Factures proforma,Ajouter Factures proforma,Modifier Factures proforma,Supprimer Factures proforma,Exporter Factures proforma,Consulter Bons de livraison,Ajouter Bons de livraison,Modifier Bons de livraison,Supprimer Bons de livraison,Exporter Bons de livraison,Consulter Bons de sortie,Ajouter Bons de sortie,Modifier Bons de sortie,Supprimer Bons de sortie,Exporter Bons de sortie,Consulter Bons de retour,Ajouter Bons de retour,Modifier Bons de retour,Supprimer Bons de retour,Exporter Bons de retour,Consulter Factures avoir,Ajouter Factures avoir,Modifier Factures avoir,Supprimer Factures avoir,Exporter Factures avoir,Consulter Clients,Ajouter Clients,Modifier Clients,Supprimer Clients,Exporter Clients,CA Clients,Consulter Bons de commande,Ajouter Bons de commande,Modifier Bons de commande,Supprimer Bons de commande,Exporter Bons de commande,Consulter Bons de réception,Ajouter Bons de réception,Modifier Bons de réception,Supprimer Bons de réception,Exporter Bons de réception,Consulter Fournisseurs,Ajouter Fournisseurs,Modifier Fournisseurs,Supprimer Fournisseurs,Exporter Fournisseurs,CA Fournisseurs,Consulter Sociétés,Ajouter Sociétés,Modifier Sociétés,Supprimer Sociétés,Exporter Sociétés,CA Sociétés,Consulter Utilisateurs,Ajouter Utilisateurs,Modifier Utilisateurs,Supprimer Utilisateurs,Consulter TVA,Ajouter TVA,Modifier TVA,Supprimer TVA,Consulter Formation,Consultation des notifications,Réglage des notifications,Modification date opération,Transformation / Dupplication documents,Modification statut de paiement,Suppression historique de paiement,Télécharger Backup', 1, 'Livrée', '0', '0,1', '0', '1678533547', 1);
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `bankaccounts`
+--
+ALTER TABLE `bankaccounts`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `clients`
+--
+ALTER TABLE `clients`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `code` (`code`),
+  ADD KEY `fullname` (`fullname`),
+  ADD KEY `phone` (`phone`);
+
+--
+-- Indexes for table `companies`
+--
+ALTER TABLE `companies`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `rs` (`rs`),
+  ADD KEY `phone` (`phone`);
+
+--
+-- Indexes for table `detailsdocuments`
+--
+ALTER TABLE `detailsdocuments`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `title` (`title`);
+
+--
+-- Indexes for table `documents`
+--
+ALTER TABLE `documents`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `code` (`code`),
+  ADD KEY `type` (`type`),
+  ADD KEY `client` (`client`),
+  ADD KEY `supplier` (`supplier`);
+
+--
+-- Indexes for table `infodocs`
+--
+ALTER TABLE `infodocs`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `notifications`
+--
+ALTER TABLE `notifications`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `parametres`
+--
+ALTER TABLE `parametres`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `payments`
+--
+ALTER TABLE `payments`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `settings`
+--
+ALTER TABLE `settings`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `suppliers`
+--
+ALTER TABLE `suppliers`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `title` (`title`),
+  ADD KEY `respphone` (`respphone`);
+
+--
+-- Indexes for table `tvas`
+--
+ALTER TABLE `tvas`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `email` (`email`),
+  ADD KEY `phone` (`phone`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `bankaccounts`
+--
+ALTER TABLE `bankaccounts`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `clients`
+--
+ALTER TABLE `clients`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `companies`
+--
+ALTER TABLE `companies`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `detailsdocuments`
+--
+ALTER TABLE `detailsdocuments`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `documents`
+--
+ALTER TABLE `documents`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `infodocs`
+--
+ALTER TABLE `infodocs`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `notifications`
+--
+ALTER TABLE `notifications`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `parametres`
+--
+ALTER TABLE `parametres`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `payments`
+--
+ALTER TABLE `payments`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `settings`
+--
+ALTER TABLE `settings`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `suppliers`
+--
+ALTER TABLE `suppliers`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `tvas`
+--
+ALTER TABLE `tvas`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
